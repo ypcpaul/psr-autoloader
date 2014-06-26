@@ -10,7 +10,7 @@ namespace tunalaruan\psr;
  * @param string $baseDirectory full path of the base directory 
  * for the provided prefix
  */
-function autoloadpsr4($prefix, $baseDirectory) {
+function psr4autoload($prefix, $baseDirectory) {
     spl_autoload_register(function ($class) use ($prefix, $baseDirectory) {
         $prefixLength = strlen($prefix);
         if(strncmp($prefix, $class, $prefixLength) !== 0) 
