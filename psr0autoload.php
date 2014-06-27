@@ -8,7 +8,9 @@ namespace tunalaruan\psr;
  */
 function psr0autoload($basePath) {
     spl_autoload_register(function ($class) use ($basePath) {
-        $basePath = str_replace(strrpos($basePath, DIRECTORY_SEPARATOR), '', $basePath);//remove trailing directory separator, if included.
+        //remove trailing directory separator, if included.
+        $basePath = str_replace(strrpos($basePath, DIRECTORY_SEPARATOR), '', $basePath);
+
         //convert namespaces to directories
         $separated = explode('\\', $class);
         $class = str_replace('_', DIRECTORY_SEPARATOR, end($separated));
@@ -17,7 +19,6 @@ function psr0autoload($basePath) {
         
         $file = $basePath . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $separated) . ".php";
 
-        echo $file; 
         if(file_exists($file))
             include $file;
     });
