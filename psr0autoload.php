@@ -3,7 +3,7 @@ namespace tunalaruan\psr;
 
 /**
  * Simple autoloader function that conforms to PSR-0
- *
+ * @author Paul Cayaco <mives29@gmail.com>
  * @param string $basePath Directory containing the vendor packages to autoload
  */
 function psr0autoload($basePath) {

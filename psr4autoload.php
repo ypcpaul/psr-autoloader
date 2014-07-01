@@ -6,6 +6,7 @@ namespace tunalaruan\psr;
  * Modified from https://github.com/php-fig/fig-standards/blob/master/accepted/
  * PSR-4-autoloader-examples.md 
  *
+ * @author Paul Cayaco <mives29@gmail.com>
  * @param string $prefix namespace prefix (vendor\\subnamespace\\)
  * @param string $baseDirectory full path of the base directory 
  * for the provided prefix
