@@ -6,7 +6,8 @@ namespace tunalaruan\psr;
  * @author Paul Cayaco <mives29@gmail.com>
  * @param string $basePath Directory containing the vendor packages to autoload
  */
-function psr0autoload($basePath) {
+function psr0autoload($basePath) 
+{
     spl_autoload_register(function ($class) use ($basePath) {
         //remove trailing directory separator, if included.
         $basePath = str_replace(strrpos($basePath, DIRECTORY_SEPARATOR), '', $basePath);
