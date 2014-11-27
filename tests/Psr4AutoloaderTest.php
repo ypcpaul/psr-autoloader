@@ -5,24 +5,30 @@ class Psr4AutoloaderTest extends PHPUnit_Framework_TestCase
     public static function setupBeforeClass() 
     {
         $content = "<?php
-        namespace sample1\sample2;
+        namespace subdirnamespace1\subdirnamespace2;
         
         class TestClass {
         public static function testFunctionPleaseDelete() { return true; }
         }
         ";
-        file_put_contents(__DIR__ . '/TestClass.php', $content);
+        mkdir(__DIR__ . "/subdir1/", 0777, true);
+        file_put_contents(__DIR__ . '/subdir1/TestClass.php', $content);
     }
 
     public function testAutoload() 
     {
-        tunalaruan\psr\psr0autoload(__DIR__);
-        sample1\sample2\TestClass::testFunctionPleaseDelete();
-        $this->assertTrue(class_exists('sample1\sample2\TestClass'));
+        \tunalaruan\psr\psr4autoload("subdirnamespace1\subdirnamespace2", __DIR__ . "/subdir1");
+        try {
+            \subdirnamespace1\subdirnamespace2\TestClass::testFunctionPleaseDelete();
+        } catch (Exception $e) {
+            $this->fail("Failure to autoload");
+        }
+        $this->assertTrue(class_exists('subdirnamespace1\subdirnamespace2\TestClass'));
     }
 
     public static function tearDownAfterClass() 
     {
-        unlink(__DIR__ . '/TestClass.php');
+        unlink(__DIR__ . '/subdir1/TestClass.php');
+        rmdir(__DIR__ . '/subdir1');
     }
 }
