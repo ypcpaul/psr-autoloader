@@ -1,5 +1,5 @@
 <?php
-namespace tunalaruan\psr;
+namespace ypcpaul\psrautoloader;
 /**
  * Simple autoloader function that conforms to PSR-4.
  *

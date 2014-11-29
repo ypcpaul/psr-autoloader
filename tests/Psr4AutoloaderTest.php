@@ -17,7 +17,7 @@ class Psr4AutoloaderTest extends PHPUnit_Framework_TestCase
 
     public function testAutoload() 
     {
-        \tunalaruan\psr\psr4autoload("subdirnamespace1\subdirnamespace2", __DIR__ . "/subdir1");
+        \ypcpaul\psrautoloader\psr4autoload("subdirnamespace1\subdirnamespace2", __DIR__ . "/subdir1");
         try {
             \subdirnamespace1\subdirnamespace2\TestClass::testFunctionPleaseDelete();
         } catch (Exception $e) {

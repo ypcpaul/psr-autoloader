@@ -17,7 +17,7 @@ class Psr0AutoloaderTest extends PHPUnit_Framework_TestCase
 
     public function testAutoload() 
     {
-        tunalaruan\psr\psr0autoload(__DIR__);
+        ypcpaul\psrautoloader\psr0autoload(__DIR__);
         sample1\sample2\TestClass::testFunctionPleaseDelete();
         $this->assertTrue(class_exists('sample1\sample2\TestClass'));
     }
